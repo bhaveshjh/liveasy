@@ -24,7 +24,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Execute Jar File
       run: sudo kill -9 `sudo lsof -t -i:5000` & sudo java -jar /home/ubuntu/actions-runner/_work/liveasy/liveasy/target/spring-boot-docker.jar &
-    - run: sudo docker build -t transporter .
-    - run: sudo docker container start transporterPostgres || sudo docker run --name transporterPostgres -e POSTGRES_ROOT_PASSWORD=postgres -e POSTGRES_DATABASE=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:alpine
-    - run: sudo docker run --env-file /home/ubuntu/test.env -p 9090:9090 --name transporter-container --link transporterPostgres:postgres transporter | echo "success"
+    - run: sudo docker build -t truckbooking .
+    - run: sudo docker container start truckbookingPostgres || sudo docker run --name truckbookingPostgres -e POSTGRES_ROOT_PASSWORD=postgres -e POSTGRES_DATABASE=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:alpine
+    - run: sudo docker run --env-file /home/ubuntu/test.env -p 5000:5000 --name truckbooking-container --link truckbookingPostgres:postgres truckbooking | echo "success"
 
