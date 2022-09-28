@@ -25,7 +25,7 @@ jobs:
     - name: Execute Jar File
       run: sudo kill -9 `sudo lsof -t -i:5000` & sudo java -jar /home/ubuntu/actions-runner/_work/liveasy/liveasy/target/spring-boot-docker.jar &
     - run: sudo docker build -t truckbooking .
-    - run: sudo docker container create truckbookingPostgres
-    - run: sudo docker container start truckbookingPostgres || sudo docker run --name truckbookingPostgres -e POSTGRES_ROOT_PASSWORD=postgres -e POSTGRES_DATABASE=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:alpine
+    - run: sudo docker container create truckbookingpostgres
+    - run: sudo docker container start truckbookingpostgres || sudo docker run --name truckbookingpostgres -e POSTGRES_ROOT_PASSWORD=postgres -e POSTGRES_DATABASE=postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:alpine
     - run: sudo docker run --env-file /home/ubuntu/test.env -p 5000:5000 --name truckbooking-container --link truckbookingPostgres:postgres truckbooking | echo "success"
 
