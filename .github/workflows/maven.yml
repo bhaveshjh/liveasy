@@ -26,7 +26,7 @@ jobs:
       run: sudo kill -9 `sudo lsof -t -i:5000` & sudo java -jar /home/ubuntu/actions-runner/_work/liveasy/liveasy/target/spring-boot-docker.jar &
     - uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: bhaveshjha/loadservice:truckbooking
+        image: bhaveshjha/loadservice
         registry: docker.io
 
 
