@@ -192,4 +192,12 @@
 		<finalName>spring-boot-docker</finalName>
 	</build>
 
+	<distributionManagement>
+		<repository>
+			<id>liveasy09-liveasy09</id>
+			<name>liveasy09-liveasy09</name>
+			<url>https://liveasy09-248812803591.d.codeartifact.ap-south-1.amazonaws.com/maven/liveasy09/</url>
+		</repository>
+	</distributionManagement>
+
 </project>
