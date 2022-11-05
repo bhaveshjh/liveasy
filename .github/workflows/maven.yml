@@ -28,4 +28,3 @@ jobs:
     - run: sudo docker container rm transporter-container|| true
     - run: sudo docker image rm transporter || true
     - run: sudo docker build -t transporter .
-    - run: sudo docker run --env-file /home/ubuntu/test.env -p 5000:5000 --name transporter-container
